@@ -111,7 +111,7 @@ GROUP BY tot_miles
 **104,802; 198,924; 109,603; 27,678; 35,189**
 
 
-## **Question 4. Longest trip for each day
+## **Question 4. Longest trip for each day**
 
 *Which was the pick up day with the longest trip distance? Use the pick up time for your calculations.*
 
@@ -149,3 +149,34 @@ ORDER BY total_aggr_amount DESC
 ```
 
 **East Harlem North, East Harlem South, Morningside Heights**
+
+## **Question 6. Largest tip**
+
+For the **passengers picked up in October 2019** in the **zone** named "**East Harlem North**" which was the **drop off zone** that had the **largest tip**?
+
+Note: it's tip , not trip
+
+We need the **name of the zone**, not the ID.
+
+```
+SELECT 
+	--"DOLocationID",
+	zdo."Zone" AS drop_off_zone,
+	zpu."Zone" AS pick_up_zone,
+	tip_amount,
+	lpep_pickup_datetime
+	
+FROM green_taxi_data green
+LEFT JOIN zones zdo
+	ON green."DOLocationID" = zdo."LocationID"
+LEFT JOIN zones zpu
+	ON green."PULocationID" = zpu."LocationID"
+WHERE 
+	CAST(lpep_pickup_datetime AS DATE) BETWEEN '2019-10-01' AND '2019-10-31'
+	AND zpu."Zone" = 'East Harlem North'
+ORDER BY tip_amount DESC
+LIMIT 1
+;
+```
+
+**JFK Airport**
