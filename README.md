@@ -199,6 +199,6 @@ LIMIT 1
 - *Remove all resources managed by terraform*
 
 **Answer**:
-
-
 **`terraform init, terraform apply -auto-approve, terraform destroy`**
+
+terraform files in folder `Module-1-terraform`. Note: no GCP credential was specified because it was accessed as a service using **ADC** (**Application Default Credentials**) via **gcloud**
