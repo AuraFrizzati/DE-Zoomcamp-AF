@@ -125,3 +125,27 @@ WHERE trip_distance = (SELECT MAX(trip_distance) FROM green_taxi_data)
 ;
 ```
 **2019-10-31**
+
+## **Question 5. Three biggest pickup zones**
+
+Which were the **top pickup locations** with **over 13,000** in `total_amount` (across all trips) for **2019-10-18**?
+
+Consider only `lpep_pickup_datetime` when filtering by **date**.
+
+```
+SELECT 
+	"PULocationID",
+	z."Zone" AS pickup_zone,
+	SUM(total_amount) AS total_aggr_amount
+FROM green_taxi_data green
+LEFT JOIN zones z
+	ON green."PULocationID" = z."LocationID"
+WHERE 
+	CAST(lpep_pickup_datetime AS DATE) = '2019-10-18'
+GROUP BY "PULocationID",z."Zone"
+HAVING SUM(total_amount) > 13000
+ORDER BY total_aggr_amount DESC
+;
+```
+
+**East Harlem North, East Harlem South, Morningside Heights**
