@@ -71,6 +71,42 @@ You can use the code from the course. It's up to you whether you want to use Jup
 
 **Code created**: refer to `ingest_green_taxi.ipynb` (476,386 rows added in `green_taxi_data` table on postgres. The lookup `zones` was already uploaded in my postgres db)
 
-```
+## Question 3. Trip Segmentation Count
+
+*During the period of **October 1st 2019 (inclusive)** and **November 1st 2019 (exclusive)**, how many trips, respectively, happened:*
+
+- *Up to 1 mile*: **104,802** (this includes two negative mileages)
+- *In between 1 (exclusive) and 3 miles (inclusive)*: I actually obtain **198,927**
+- *In between 3 (exclusive) and 7 miles (inclusive)*: **109,603**
+- *In between 7 (exclusive) and 10 miles (inclusive)*: **27,678**
+- *Over 10 miles*: **35,189**
+
+To answer the questions, I used the `trip_distance` field ("*the elapsed trip distance in miles reported by the taximeter*", https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_green.pdf) and the `lpep_dropoff_datetime` field ("*The date and time when the meter was disengaged*")
 
 ```
+WITH CTE AS (
+	SELECT
+		CAST(lpep_dropoff_datetime AS DATE) AS dropoff_date,
+		trip_distance, 
+	CASE 
+		WHEN trip_distance <= 1 THEN 'up to 1 mile'
+		WHEN trip_distance > 1 AND trip_distance <= 3 THEN '1< miles <=3'
+		WHEN trip_distance > 3 AND trip_distance <= 7 THEN '3< miles <=7'
+		WHEN trip_distance > 7 AND trip_distance <= 10 THEN '7< miles <=10'
+		ELSE 'Over 10 miles'
+	END AS tot_miles
+	FROM green_taxi_data
+	WHERE 
+		CAST(lpep_dropoff_datetime AS DATE) BETWEEN '2019-01-01' AND '2019-10-31'
+		--AND trip_distance >= 0 --REMOVE negative values
+)
+SELECT 
+	tot_miles, 
+	COUNT(1) AS n_trips 
+FROM CTE
+GROUP BY tot_miles
+;
+```
+
+**104,802; 198,924; 109,603; 27,678; 35,189**
+
