@@ -53,3 +53,19 @@ volumes:
 **Answer**: the hostname for the ppstgres database is its service name (**db**), while its port is the port specified for its container (**5432**)
 
 **db:5432**
+
+
+## Prepare Postgres
+
+Run **Postgres** and load data as shown in the videos We'll use the **green taxi trips from October 2019**:
+
+`wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz`
+
+You will also need the dataset with zones:
+
+`wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv`
+
+Download this data and put it into Postgres.
+
+You can use the code from the course. It's up to you whether you want to use Jupyter or a python script.
+
