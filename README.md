@@ -110,3 +110,18 @@ GROUP BY tot_miles
 
 **104,802; 198,924; 109,603; 27,678; 35,189**
 
+
+## **Question 4. Longest trip for each day
+
+*Which was the pick up day with the longest trip distance? Use the pick up time for your calculations.*
+
+*Tip: For every day, we only care about one single trip with the longest distance.*
+
+```
+SELECT
+	CAST(lpep_pickup_datetime AS DATE) AS pickup_date
+FROM green_taxi_data
+WHERE trip_distance = (SELECT MAX(trip_distance) FROM green_taxi_data)
+;
+```
+**2019-10-31**
