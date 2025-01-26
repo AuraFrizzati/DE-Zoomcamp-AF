@@ -69,3 +69,8 @@ Download this data and put it into Postgres.
 
 You can use the code from the course. It's up to you whether you want to use Jupyter or a python script.
 
+**Code created**: refer to `ingest_green_taxi.ipynb` (476,386 rows added in `green_taxi_data` table on postgres. The lookup `zones` was already uploaded in my postgres db)
+
+```
+
+```
