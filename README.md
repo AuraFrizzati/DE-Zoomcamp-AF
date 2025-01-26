@@ -190,6 +190,7 @@ LIMIT 1
 
 *Modify the files as necessary to create a **GCP Bucket** and **Big Query Dataset**.*
 
+
 ## **Question 7. Terraform Workflow**
 
 *Which of the following sequences, respectively, describes the workflow for:*
