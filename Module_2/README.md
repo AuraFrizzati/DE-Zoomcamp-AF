@@ -25,3 +25,7 @@ Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to te
 
 ![alt text](image.png)
 
+2. What is the **rendered value** of the **variable** `file` when the **inputs taxi** is set to `green`, year is set to `2020`, and month is set to `04` during execution?
+**`green_tripdata_2020-04.csv`**
+
+![alt text](image-1.png)
