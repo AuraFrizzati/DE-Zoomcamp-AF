@@ -33,7 +33,17 @@ Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to te
 
 *3. How many rows are there for the **Yellow Taxi data** for **all CSV files** in the year **2020**?*
 
+From Bigquery:
+`SELECT count(*)  FROM `ultimate-ascent-449714-t9.de_zoomcamp.yellow_tripdata` where filename LIKE '%2020%';
+`
+**24648499**
+
 *4. How many rows are there for the **Green Taxi data** for **all CSV files** in the year **2020**?*
+
+From Bigquery:
+`SELECT count(*)  FROM `ultimate-ascent-449714-t9.de_zoomcamp.green_tripdata` where filename LIKE '%2020%';
+`
+**1734051**
 
 *5. How many rows are there for the **Yellow Taxi data** for the **March 2021** CSV file?*
 
