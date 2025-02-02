@@ -47,6 +47,11 @@ From Bigquery:
 
 *5. How many rows are there for the **Yellow Taxi data** for the **March 2021** CSV file?*
 
+From Bigquery:
+`SELECT count(*)  FROM `ultimate-ascent-449714-t9.de_zoomcamp.yellow_tripdata` where filename = 'yellow_tripdata_2021-03.csv';`
+
+**1925152**
+
 *6. How would you configure the **timezone** to **New York** in a **Schedule trigger**?*
 
 Add a timezone property set to America/New_York in the Schedule trigger configuration (https://kestra.io/docs/workflow-components/triggers/schedule-trigger).  
