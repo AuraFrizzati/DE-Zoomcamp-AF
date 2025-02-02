@@ -38,3 +38,13 @@ Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to te
 *5. How many rows are there for the **Yellow Taxi data** for the **March 2021** CSV file?*
 
 *6. How would you configure the **timezone** to **New York** in a **Schedule trigger**?*
+
+Add a timezone property set to America/New_York in the Schedule trigger configuration (https://kestra.io/docs/workflow-components/triggers/schedule-trigger).  
+Example:
+```
+triggers:
+  - id: daily
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "@daily"
+    timezone: America/New_York
+```
