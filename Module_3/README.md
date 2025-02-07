@@ -42,12 +42,27 @@ Question 1: What is count of records for the 2024 Yellow Taxi Data?
 
 ## Question 2:
 Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.</br> 
+
+```
+-- external table
+SELECT COUNT(1)
+FROM
+(SELECT DISTINCT(PULocationID)
+FROM `data-eng-week3-af.DW_demo.external_yellow_tripdata2024`) AS t
+; -- COUNT= 262, 0 MB
+
+-- materialised table
+SELECT COUNT(1)
+FROM
+(SELECT DISTINCT(PULocationID)
+FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`) AS t
+;-- COUNT= 262, 155.12 MB
+
+```
 What is the **estimated amount** of data that will be read when this query is executed on the External Table and the Table?
 
-- 18.82 MB for the External Table and 47.60 MB for the Materialized Table
-- 0 MB for the External Table and 155.12 MB for the Materialized Table
-- 2.14 GB for the External Table and 0MB for the Materialized Table
-- 0 MB for the External Table and 0MB for the Materialized Table
+**0 MB for the External Table and 155.12 MB for the Materialized Table**
+
 
 ## Question 3:
 Write a query to retrieve the PULocationID from the table (not the external table) in BigQuery. Now write a query to retrieve the PULocationID and DOLocationID on the same table. Why are the estimated number of Bytes different?
