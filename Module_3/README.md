@@ -34,10 +34,10 @@ SELECT * FROM `data-eng-week3-af.DW_demo.external_yellow_tripdata2024`;
 
 ## Question 1:
 Question 1: What is count of records for the 2024 Yellow Taxi Data?
-- 65,623
-- 840,402
-- 20,332,093
-- 85,431,289
+**20,332,093**
+
+![alt text](image.png)
+
 
 
 ## Question 2:
