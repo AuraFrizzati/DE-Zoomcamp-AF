@@ -76,8 +76,7 @@ FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --310.24 MB
 ```
 
 **BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires 
-reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
-**
+reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.**
 
 ## Question 4:
 How many records have a fare_amount of 0?
