@@ -137,6 +137,12 @@ It is good practice to cluster your table if it is often queried using the same 
 ## (Bonus: Not worth points) Question 9:
 No Points: Write a `SELECT count(*)` query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
 
+```
+SELECT * FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --2.72 GB
+SELECT (1) FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --0 B
+```
+
+The query `SELECT * FROM` reads all columns and rows from the table, resulting in reading the entire table size. This is why the estimated query byte size is pretty large
 
 ## Submitting the solutions
 

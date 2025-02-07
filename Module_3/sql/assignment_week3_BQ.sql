@@ -56,3 +56,8 @@ WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15'; --310.24 MB
 SELECT DISTINCT(VendorID)
 FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024_part_clust`
 WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15'; --26.84 MB
+
+-- No Points: Write a `SELECT count(*)` query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
+
+SELECT * FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --2.72 GB
+SELECT (1) FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --0 B
