@@ -80,10 +80,13 @@ reading more data than querying one column (PULocationID), leading to a higher e
 
 ## Question 4:
 How many records have a fare_amount of 0?
-- 128,210
-- 546,578
-- 20,188,016
-- 8,333
+
+```
+SELECT COUNT(1)
+FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`
+WHERE fare_amount = 0; --8333
+```
+**8,333**
 
 ## Question 5:
 What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)
