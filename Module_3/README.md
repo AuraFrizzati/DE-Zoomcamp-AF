@@ -130,7 +130,10 @@ Where is the data stored in the External Table you created?
 
 ## Question 8:
 It is best practice in Big Query to always cluster your data:
+
+
 **False**
+
 It is good practice to cluster your table if it is often queried using the same columns for filtering or aggregation
 
 
@@ -142,7 +145,7 @@ SELECT * FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --2.72 GB
 SELECT (1) FROM `data-eng-week3-af.DW_demo.yellow_tripdata2024`; --0 B
 ```
 
-The query `SELECT * FROM` reads all columns and rows from the table, resulting in reading the entire table size. This is why the estimated query byte size is pretty large
+The query `SELECT * FROM` reads all columns and rows from the table, resulting in reading the entire table size. This is why the estimated query byte size is pretty large. Furthermore, BigQuery has a column-oriented storage structure, meaning it stores data by columns rather than rows. As a result, reading all columns requires scanning a large amount of data.
 
 ## Submitting the solutions
 
