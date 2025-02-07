@@ -24,6 +24,12 @@ OPTIONS (
 ```
 
 Create a (regular/materialized) table in BQ using the Yellow Taxi Trip Records (do not partition or cluster this table). </br>
+```
+-- Create a non partitioned table from external table
+CREATE OR REPLACE TABLE `data-eng-week3-af.DW_demo.yellow_tripdata2024` AS
+SELECT * FROM `data-eng-week3-af.DW_demo.external_yellow_tripdata2024`;
+```
+
 </p>
 
 ## Question 1:
