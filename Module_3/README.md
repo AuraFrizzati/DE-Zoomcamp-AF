@@ -130,8 +130,8 @@ Where is the data stored in the External Table you created?
 
 ## Question 8:
 It is best practice in Big Query to always cluster your data:
-- True
-- False
+**False**
+It is good practice to cluster your table if it is often queried using the same columns for filtering or aggregation
 
 
 ## (Bonus: Not worth points) Question 9:
