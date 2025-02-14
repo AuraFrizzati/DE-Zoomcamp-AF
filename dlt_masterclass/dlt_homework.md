@@ -41,6 +41,8 @@ print("dlt version:", dlt.__version__)
 
 Provide the **version** you see in the output.
 
+**version 1.6.1**
+
 ## **Question 2: Define & Run the Pipeline (NYC Taxi API)**
 
 Use dlt to extract all pages of data from the API.
